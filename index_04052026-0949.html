@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clay Conner Coaching</title>
+
+
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #1B2E4F;
+    --green:      #2D5A3D;
+    --green-soft: #8FB89A;
+    --green-pale: #D4EAD8;
+    --stone:      #F0EDE4;
+    --stone-dark: #E4DFD3;
+    --ink:        #4A5A4A;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --sans:       system-ui, sans-serif;
+  }
+
+  body { background: var(--stone); color: var(--navy); font-family: var(--sans); }
+
+  /* ── Nav ── */
+  .s-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 48px;
+    background: var(--stone);
+    border-bottom: 1px solid rgba(45,90,61,.14);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .s-logo { display: flex; flex-direction: column; }
+  .s-logo a { display: flex; flex-direction: column; text-decoration: none; }
+  .brand {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1;
+  }
+  .brand-sub {
+    font-size: 15px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-top: 4px;
+  }
+  .s-links { display: flex; gap: 28px; align-items: center; }
+  .s-links a {
+    font-size: 18px;
+    text-decoration: none;
+    color: var(--ink);
+    letter-spacing: .02em;
+    transition: color .2s;
+  }
+  .s-links a:hover { color: var(--navy); }
+  .nav-cta {
+    background: var(--green);
+    color: var(--green-pale);
+    padding: 9px 20px;
+    font-size: 14px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: #234a31; }
+
+  /* ── Hero ── */
+  .hero {
+    background: var(--navy);
+    padding: 88px 48px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #1e4229, var(--green-soft), var(--green));
+  }
+  .h-eye {
+    font-size: 14px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--green-soft);
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--sans);
+  }
+  .h-eye::after {
+    content: '';
+    flex: 0 0 36px;
+    height: 1px;
+    background: rgba(143,184,154,.4);
+  }
+  .h-hl {
+    font-family: var(--serif);
+    font-size: 52px;
+    line-height: 1.07;
+    color: var(--stone);
+    max-width: 640px;
+    margin-bottom: 28px;
+    font-weight: 400;
+  }
+  .h-sub {
+    font-size: 18px;
+    line-height: 1.82;
+    color: rgba(240,237,228,.62);
+    max-width: 500px;
+    margin-bottom: 40px;
+  }
+  .h-btn {
+    display: inline-block;
+    background: var(--green);
+    color: var(--green-pale);
+    padding: 14px 30px;
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .h-btn:hover { background: #234a31; }
+  .h-note {
+    margin-top: 16px;
+    font-size: 15px;
+    color: rgba(240,237,228,.55);
+    letter-spacing: .03em;
+  }
+
+  /* ── About ── */
+  .about {
+    background: var(--stone);
+    padding: 72px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    border-bottom: 1px solid rgba(45,90,61,.12);
+  }
+  .about-eye {
+    font-size: 14px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 16px;
+  }
+  .about-hl {
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 600;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 22px;
+  }
+  .about-body {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--ink);
+  }
+  .about-body p + p { margin-top: 16px; }
+  .about-aside {
+    padding-top: 8px;
+    border-left: 1px solid rgba(45,90,61,.22);
+    padding-left: 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .aside-item {}
+  .aside-lbl {
+    font-size: 14px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green);
+    margin-bottom: 7px;
+  }
+  .aside-txt {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: var(--navy);
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  /* ── Profiles ── */
+  .profiles {
+    background: var(--stone);
+    padding: 72px 48px;
+  }
+  .section-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 52px;
+  }
+  .green-line {
+    flex: 1;
+    height: 1px;
+    background: rgba(45,90,61,.2);
+  }
+  .section-tag {
+    font-size: 14px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--green);
+    white-space: nowrap;
+    font-family: var(--sans);
+  }
+  .pg {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 24px;
+  }
+  .pc {
+    border-top: 1px solid rgba(45,90,61,.28);
+    padding-top: 26px;
+  }
+  .pc-num {
+    font-family: var(--serif);
+    font-size: 46px;
+    color: rgba(45,90,61,.16);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .pc-name {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .pc-desc {
+    font-size: 18px;
+    line-height: 1.82;
+    color: var(--ink);
+  }
+  .pc-tag {
+    display: inline-block;
+    margin-top: 18px;
+    font-size: 18px;
+    color: var(--green);
+    font-style: italic;
+    font-family: var(--serif);
+    line-height: 1.5;
+  }
+
+  /* ── Quote ── */
+  .quote {
+    background: var(--stone-dark);
+    padding: 64px 48px;
+    text-align: center;
+    border-top: 1px solid rgba(45,90,61,.16);
+    border-bottom: 1px solid rgba(45,90,61,.16);
+  }
+  .qm {
+    font-family: var(--serif);
+    font-size: 88px;
+    color: rgba(45,90,61,.14);
+    line-height: .4;
+    margin-bottom: 26px;
+    display: block;
+  }
+  .qt {
+    font-family: var(--serif);
+    font-size: 24px;
+    font-style: italic;
+    line-height: 1.62;
+    color: var(--navy);
+    max-width: 580px;
+    margin: 0 auto 22px;
+    font-weight: 400;
+  }
+  .qa {
+    font-size: 14px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--green);
+    font-family: var(--sans);
+  }
+
+  /* ── How It Works ── */
+  .how {
+    background: var(--navy);
+    padding: 72px 48px;
+  }
+  .how-top {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-bottom: 48px;
+  }
+  .how-eye {
+    font-size: 14px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--green-soft);
+  }
+  .how-hl {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--stone);
+    font-weight: 400;
+  }
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 0;
+    border-left: 1px solid rgba(143,184,154,.18);
+  }
+  .hw {
+    padding: 0 36px 0 28px;
+    border-right: 1px solid rgba(143,184,154,.18);
+  }
+  .hw-n {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: rgba(143,184,154,.22);
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+  .hw-title {
+    font-family: var(--serif);
+    font-size: 26px;
+    color: var(--stone);
+    margin-bottom: 12px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .hw-desc {
+    font-size: 18px;
+    line-height: 1.82;
+    color: rgba(240,237,228,.65);
+  }
+
+  /* ── CTA ── */
+  .cta {
+    background: var(--green);
+    padding: 80px 48px;
+    text-align: center;
+  }
+  .cta-hl {
+    font-family: var(--serif);
+    font-size: 32px;
+    color: var(--stone);
+    font-weight: 400;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .cta-sub {
+    font-size: 18px;
+    color: rgba(240,237,228,.68);
+    margin-bottom: 34px;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.82;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--stone);
+    color: var(--green);
+    padding: 15px 34px;
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 2px;
+    transition: background .2s;
+  }
+  .cta-btn:hover { background: #e0dbd1; }
+  .cta-note {
+    font-size: 15px;
+    color: rgba(240,237,228,.55);
+    margin-top: 16px;
+    letter-spacing: .04em;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy);
+    padding: 28px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(143,184,154,.12);
+  }
+  .footer-brand {
+    font-family: var(--serif);
+    font-size: 20px;
+    color: rgba(240,237,228,.60);
+  }
+  .footer-tag {
+    font-size: 15px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(143,184,154,.55);
+  }
+  /* ── Dr. A Story Section ── */
+  .dra-section {
+    padding: 80px 48px;
+    background: var(--stone-dark);
+    border-top: 1px solid rgba(45,90,61,.12);
+    border-bottom: 1px solid rgba(45,90,61,.12);
+  }
+  .dra-eyebar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 36px;
+  }
+  .dra-grid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 72px;
+    align-items: start;
+  }
+  .dra-right { padding-top: 8px; }
+
+  /* ── Mobile ── */
+  /* ── Hamburger ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--navy);
+    transition: all .25s;
+    border-radius: 1px;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--stone);
+    z-index: 200;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--navy);
+    text-decoration: none;
+    letter-spacing: .04em;
+  }
+  .mobile-menu a:hover { color: var(--green); }
+  .mobile-menu .mob-cta {
+    display: inline-block;
+    background: var(--green);
+    color: var(--green-pale);
+    padding: 14px 32px;
+    font-size: 14px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 2px;
+    font-family: var(--sans);
+    margin-top: 8px;
+  }
+  .mobile-menu .mob-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--navy);
+    line-height: 1;
+    padding: 4px 8px;
+  }
+
+
+  @media (max-width: 900px) {
+    .s-nav { padding: 14px 20px; }
+    .s-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero { padding: 60px 24px 72px; }
+    .h-hl { font-size: 36px; }
+    .h-sub { font-size: 16px; }
+
+    .about {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      padding: 48px 24px;
+    }
+    .about-aside {
+      border-left: none;
+      border-top: 1px solid rgba(45,90,61,.22);
+      padding-left: 0;
+      padding-top: 32px;
+    }
+
+    .profiles { padding: 48px 24px; }
+    .pg { grid-template-columns: 1fr; gap: 32px; }
+
+    .dra-section { padding: 52px 24px; }
+    .dra-eyebar { flex-wrap: wrap; gap: 8px; }
+    .dra-grid { grid-template-columns: 1fr; gap: 40px; }
+
+    .quote { padding: 48px 24px; }
+    .qt { font-size: 20px; }
+
+    .how { padding: 48px 24px; }
+    .how-grid {
+      grid-template-columns: 1fr;
+      border-left: none;
+    }
+    .hw {
+      padding: 24px 0;
+      border-right: none;
+      border-top: 1px solid rgba(143,184,154,.18);
+    }
+    .hw:first-child { border-top: none; }
+
+    .cta { padding: 56px 24px; }
+    .cta-hl { font-size: 28px; }
+
+    .footer {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+      padding: 24px;
+    }
+  }
+  .body-link { color: var(--green); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color .2s; }
+  .body-link:hover { color: var(--navy); }
+  .profile-link { display: block; margin-top: 28px; font-size: 15px; letter-spacing: .08em; color: var(--green); text-decoration: none; font-family: var(--sans); }
+  .profile-link:hover { color: var(--navy); }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="s-nav">
+  <div class="s-logo">
+    <a href="index.html" style="text-decoration:none;">
+      <span class="brand">Clay Conner Coaching</span>
+      <span class="brand-sub">Clarity for What's Next</span>
+    </a>
+  </div>
+  <div class="s-links">
+    <a href="about.html">About</a>
+    <a href="clients.html">Clients</a>
+    <a href="writing.html">Writing</a>
+  </div>
+  <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="clients.html">Clients</a>
+  <a href="writing.html">Writing</a>
+  <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="h-eye">Clay Conner Coaching</div>
+  <h1 class="h-hl">Knowing it and living it are two different things.</h1>
+  <p class="h-sub">Most of my clients aren't looking for more information. They're looking for an honest place to think — and they've realized they don't have one.</p>
+  <a href="https://tidycal.com/clay3" class="h-btn">Book a Discovery Call</a>
+  <p class="h-note">30 minutes · no commitment · no pitch</p>
+</section>
+
+<!-- About -->
+<section class="about">
+  <div>
+    <div class="about-eye">About the work</div>
+    <h2 class="about-hl">A space you haven't had before.</h2>
+    <div class="about-body">
+      <p>I've spent most of my adult life in rooms with high-performing people. What I kept noticing wasn't their accomplishments — it was the distance between who they were and how they were showing up. I became a coach to close that distance. With them. From the inside.</p>
+      <p>I'm not a consultant. I won't hand you a framework and call it coaching. What I do is sit with you in the hard questions — the ones you keep avoiding or can't name — and help you find your own answer.</p>
+      <p>I came to formal coach training after years of doing this work. The structure added precision to what was already there. The practice came first — and that order shows up in how it runs. I work with a select number of clients at a time. I keep it that way on purpose. This kind of work needs attention, not a system that scales.</p>
+      <p><a href="about.html" class="body-link">More about the work and where this comes from &rarr;</a></p>
+    </div>
+  </div>
+  <div class="about-aside">
+    <div class="aside-item">
+      <div class="aside-lbl">Coaching focus</div>
+      <div class="aside-txt">The inner voice that blocks capable people from becoming who they already are.</div>
+    </div>
+    <div class="aside-item">
+      <div class="aside-lbl">Who this is for</div>
+      <div class="aside-txt">People at an inflection point — the moment when what got you here stops being enough for what's next.</div>
+    </div>
+    <div class="aside-item">
+      <div class="aside-lbl">What's different</div>
+      <div class="aside-txt">A room where the conversation can happen. High-performing people rarely have one — not with family, not with colleagues, not with anyone who needs them to be certain. That absence is what coaching fills.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Profiles -->
+<section class="profiles">
+  <div class="section-row">
+    <span class="green-line"></span>
+    <span class="section-tag">Three people. One coaching practice.</span>
+    <span class="green-line"></span>
+  </div>
+  <div class="pg">
+
+    <div class="pc">
+      <div class="pc-num">01</div>
+      <div class="pc-name">The Achiever at the Threshold</div>
+      <p class="pc-desc">You've been succeeding long enough to believe you can push through anything. This one is different. You're putting in the effort, doing it right — and it's not moving. You've started wondering if something is wrong with you. It's not. But everyone around you expects you to figure it out — and there's no room to say otherwise. Something is in the way. We can find it.</p>
+      <span class="pc-tag">"I've tried everything. I don't know what's wrong with me."</span>
+    </div>
+
+    <div class="pc">
+      <div class="pc-num">02</div>
+      <div class="pc-name">The Leader in the Gap</div>
+      <p class="pc-desc">You know exactly what you're about. You can name your values, explain your mission, articulate exactly who you want to be — and you've been able to do that for a long time. The problem isn't knowing. It's the moment. The conversation you rehearse and don't have. The decision made from fear instead of conviction. The price you don't name. You can feel the distance from the inside. You've been crossing it alone long enough.</p>
+      <span class="pc-tag">"I know who I am. I can't seem to show up that way when it counts."</span>
+    </div>
+
+    <div class="pc">
+      <div class="pc-num">03</div>
+      <div class="pc-name">The Uprooted</div>
+      <p class="pc-desc">Something shifted. Maybe you saw it coming, maybe you didn't. The capability didn't go anywhere. But the thing that used to orient you isn't doing that anymore. You're not broken. You're in a season. You're still moving — the problem is the movement isn't arriving anywhere. And you've been figuring it out alone long enough.</p>
+      <span class="pc-tag">"I'm in a season. Something needs to change. I can't name it yet."</span>
+    </div>
+
+  </div>
+  <a href="clients.html" class="profile-link" style="text-align:center; padding-top:8px;">See how this looks in practice &rarr;</a>
+</section>
+
+<!-- Dr. A Story -->
+<section class="dra-section">
+
+  <div class="dra-eyebar">
+    <span style="font-size: 14px; letter-spacing: .18em; text-transform: uppercase; color: var(--green); font-family: var(--sans);">The Leader in the Gap</span>
+    <span style="flex: 0 0 32px; height: 1px; background: rgba(45,90,61,.25);"></span>
+    <span style="font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); font-family: var(--sans); opacity: .7;">Dr. Andrew Rostenberg · Founder, Red Mountain Natural Medicine · Boise, Idaho</span>
+  </div>
+
+  <div class="dra-grid">
+
+    <div>
+      <h2 style="font-family: var(--serif); font-size: 34px; font-weight: 400; color: var(--navy); line-height: 1.15; margin-bottom: 28px;">He knew exactly who he was.<br>He couldn't seem to show up that way.</h2>
+      <div style="font-size: 18px; line-height: 1.88; color: var(--ink);">
+        <p>Andrew arrived with a philosophy already fully formed. He was a chiropractor eight months into his own practice, with a young family depending entirely on what he could build. He could articulate his mission with striking clarity: ease human suffering, fight for the people medicine was failing. Love and serve. He believed it completely.</p>
+        <p style="margin-top: 18px;">What he couldn't do was walk into a patient's second visit and talk about money. He knew his work was worth what he charged. He knew the care plan conversation was the right thing for the patient. He knew. And then the moment arrived — and he went quiet. His wife needed him to be certain. His office-sharing partner was now a competitor. He was alone with a very loud interior life and a practice that was failing quietly. He had no one who could hear the real truth.</p>
+        <p style="margin-top: 18px;">The coaching didn't give him new information. He didn't need information — he had a philosophy better-formed than most practitioners twice his age. It gave him a space where the honest conversation could finally happen. Where he could say: I know who I am, and I can't seem to show up that way. And where he could finally hear the answer he already had.</p>
+        <p style="margin-top: 18px;">Within weeks, the care plan conversation stopped being a negotiation and became an act of service. Patients responded — not because the words changed, but because the person delivering them had. By November, three months in, he had gone from six patients a week to fifty-five, crossed $24,000 in a single month, and was fielding referrals from Texas and Hawaii. By March he was signing the lease on his own practice.</p>
+        <p style="margin-top: 18px;">The business result was real. But it was a byproduct — not the goal. What changed was Andrew's relationship with the gap between knowing and doing. Once that closed, everything else followed.</p>
+        <p style="margin-top: 18px;">Thirteen years later, Red Mountain Natural Medicine is a multi-physician integrative clinic. His wife is on staff. He has published a book. He runs a coaching program for other practitioners. A patient who first came in 2012 is still there. The transformation held.</p>
+      </div>
+    </div>
+
+    <div class="dra-right">
+
+      <div style="border-left: 2px solid var(--green); padding-left: 24px; margin-bottom: 28px;">
+        <p style="font-family: var(--serif); font-size: 20px; font-style: italic; line-height: 1.6; color: var(--navy); font-weight: 400; margin-bottom: 10px;">I've tried to do so many things by myself. Having someone listen — and then ask the question that gets things to move — that's what changed everything.</p>
+        <span style="font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-family: var(--sans);">Dr. Andrew Rostenberg</span>
+      </div>
+
+      <div style="border-left: 2px solid var(--green); padding-left: 24px; margin-bottom: 32px;">
+        <p style="font-family: var(--serif); font-size: 20px; font-style: italic; line-height: 1.6; color: var(--navy); font-weight: 400; margin-bottom: 10px;">Coaching is the secret sauce for me to keep moving at the speed I'm moving.</p>
+        <span style="font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--green); font-family: var(--sans);">Dr. Andrew Rostenberg · March 2013</span>
+      </div>
+
+      <div style="margin-top: 28px; padding-top: 28px; border-top: 1px solid rgba(45,90,61,.16); display: flex; flex-direction: column; gap: 18px;">
+        <div>
+          <div style="font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); font-family: var(--sans); margin-bottom: 5px;">Where he started</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--navy); line-height: 1.4;">6 patients a week. No room to be honest about what was happening.</div>
+        </div>
+        <div>
+          <div style="font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); font-family: var(--sans); margin-bottom: 5px;">The obstacle</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--navy); line-height: 1.4;">A mission he believed completely — and couldn't execute when it mattered.</div>
+        </div>
+        <div>
+          <div style="font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); font-family: var(--sans); margin-bottom: 5px;">What shifted</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--navy); line-height: 1.4;">Not tactics. The relationship between who he was and how he was showing up.</div>
+        </div>
+        <div>
+          <div style="font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); font-family: var(--sans); margin-bottom: 5px;">What followed</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--navy); line-height: 1.4;">55 patients a week. $24K monthly. His own practice. A vision that became a life.</div>
+        </div>
+        <div>
+          <div style="font-size: 14px; letter-spacing: .16em; text-transform: uppercase; color: var(--green); font-family: var(--sans); margin-bottom: 5px;">Thirteen years later</div>
+          <div style="font-family: var(--serif); font-size: 18px; color: var(--navy); line-height: 1.4;">Red Mountain Natural Medicine — still serving patients in Boise. The transformation held.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<!-- Quote — Melanie -->
+<section class="quote">
+  <span class="qm">"</span>
+  <p class="qt">Things just don't click. In my case, it was coaching. I don't know how it works, but it works. Lean into it.</p>
+  <span class="qa">Melanie Thorley · Employment Attorney · Brisbane</span>
+</section>
+
+<!-- Quote — Dr. A -->
+<section class="quote" style="border-top: none;">
+  <span class="qm">"</span>
+  <p class="qt">I've tried to do so many things by myself. Having someone listen — and then ask the question that gets things to move — that's what changed everything.</p>
+  <span class="qa">Dr. Andrew Rostenberg · Founder, Red Mountain Natural Medicine · Boise</span>
+</section>
+
+<!-- How It Works -->
+<section class="how">
+  <div class="how-top">
+    <span class="how-eye">The process</span>
+    <h2 class="how-hl">Simple. Direct. No system required.</h2>
+  </div>
+  <div class="how-grid">
+    <div class="hw">
+      <div class="hw-n">01</div>
+      <div class="hw-title">Start with a call</div>
+      <p class="hw-desc">We start with a 30-minute discovery call. No pitch. No close. You'll know quickly whether this is right — and so will I.</p>
+    </div>
+    <div class="hw">
+      <div class="hw-n">02</div>
+      <div class="hw-title">We get to what's in the way</div>
+      <p class="hw-desc">Not symptoms. Not surface-level goals. The work goes to the real obstacle — the pattern, the belief that keeps running the show. And because you find it rather than receive it, it stays. That's what makes the difference between a good session and a permanent shift.</p>
+    </div>
+    <div class="hw">
+      <div class="hw-n">03</div>
+      <div class="hw-title">You leave with clarity, not homework</div>
+      <p class="hw-desc">The goal isn't a to-do list. It's a new relationship with the problem — one where the obstacle is visible and you know how to move.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <h2 class="cta-hl">If you're thinking about it,<br>that's enough reason to reach out.</h2>
+  <p class="cta-sub">I work with a select number of clients at a time. If you're wondering whether this is for you, reach out. The call is free. The conversation is honest. You'll know by the end of it.</p>
+  <a href="https://tidycal.com/clay3" class="cta-btn">Schedule a Conversation</a>
+  <p class="cta-note">clayconnercoaching.com</p>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span class="footer-brand">Clay Conner Coaching</span>
+  <span class="footer-tag">Clarity for What's Next</span>
+</footer>
+
+<script>
+  const hbg = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  const cls = document.getElementById('mob-close');
+  const cta = document.getElementById('nav-cta-desktop');
+  function openMenu(){ hbg.classList.add('open'); mob.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hbg.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }
+  hbg.addEventListener('click', openMenu);
+  cls.addEventListener('click', closeMenu);
+  mob.addEventListener('click', function(e){ if(e.target===mob) closeMenu(); });
+  // On desktop, hide hamburger and show the nav-cta normally
+  function handleResize(){
+    if(window.innerWidth > 900){
+      cta.style.display = '';
+      closeMenu();
+    } else {
+      cta.style.display = 'none';
+    }
+  }
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+</body>
+</html>
