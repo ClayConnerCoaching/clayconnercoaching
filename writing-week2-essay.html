@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F8KJS7BXF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F8KJS7BXF4');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Flinch Is the Tell · Clay Conner Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #1B2E4F;
+    --green:      #2D5A3D;
+    --green-soft: #8FB89A;
+    --green-pale: #D4EAD8;
+    --stone:      #F0EDE4;
+    --stone-dark: #E4DFD3;
+    --ink:        #4A5A4A;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --sans:       system-ui, sans-serif;
+  }
+
+  body { background: var(--stone); color: var(--navy); font-family: var(--sans); }
+
+  /* ── Nav ── */
+  .s-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px; background: var(--stone);
+    border-bottom: 1px solid rgba(45,90,61,.14); position: sticky; top: 0; z-index: 100;
+  }
+  .s-logo { display: flex; flex-direction: column; }
+  .s-logo a { display: flex; flex-direction: column; text-decoration: none; }
+  .brand { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--navy); line-height: 1; }
+  .brand-sub { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-top: 4px; }
+  .s-links { display: flex; gap: 28px; align-items: center; }
+  .s-links a { font-size: 18px; text-decoration: none; color: var(--ink); letter-spacing: .02em; transition: color .2s; }
+  .s-links a:hover { color: var(--navy); }
+  .s-links a.active { color: var(--navy); font-weight: 500; }
+  .nav-cta {
+    background: var(--green); color: var(--green-pale); padding: 9px 20px;
+    font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .nav-cta:hover { background: #234a31; }
+
+  /* ── Hamburger ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: all .25s; border-radius: 1px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--stone); z-index: 200; flex-direction: column;
+    align-items: center; justify-content: center; gap: 36px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: .04em; }
+  .mobile-menu a:hover { color: var(--green); }
+  .mobile-menu .mob-cta {
+    display: inline-block; background: var(--green); color: var(--green-pale);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; font-family: var(--sans); margin-top: 8px;
+  }
+  .mobile-menu .mob-close {
+    position: absolute; top: 22px; right: 22px; background: none; border: none;
+    font-size: 28px; cursor: pointer; color: var(--navy); line-height: 1; padding: 4px 8px;
+  }
+
+  /* ── Post header ── */
+  .post-header {
+    background: var(--navy);
+    padding: 72px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #1e4229, var(--green-soft), var(--green));
+  }
+  .post-back {
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--green-soft); text-decoration: none; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 36px;
+    transition: color .2s;
+  }
+  .post-back::before { content: '←'; }
+  .post-back:hover { color: var(--stone); }
+  .post-arch {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--green-soft); font-family: var(--sans); margin-bottom: 20px;
+  }
+  .post-title {
+    font-family: var(--serif); font-size: 48px; line-height: 1.07;
+    color: var(--stone); max-width: 680px; font-weight: 400; margin-bottom: 24px;
+  }
+  .post-subtitle {
+    font-family: var(--serif); font-size: 22px; font-style: italic;
+    color: rgba(240,237,228,.62); max-width: 560px; margin-bottom: 32px;
+  }
+  .post-meta {
+    font-size: 13px; color: rgba(240,237,228,.45); font-family: var(--sans);
+    letter-spacing: .04em; display: flex; gap: 24px;
+  }
+
+  /* ── Essay body ── */
+  .post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+  }
+  .post-body p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.82;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .post-body p em {
+    font-style: italic;
+    color: var(--navy);
+  }
+  .post-body .section-break {
+    text-align: center;
+    color: var(--green-soft);
+    font-size: 18px;
+    letter-spacing: .2em;
+    margin: 48px 0;
+    display: block;
+  }
+  .post-pullquote {
+    border-left: 2px solid var(--green);
+    padding-left: 28px;
+    margin: 48px 0;
+  }
+  .post-pullquote p {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--navy);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .post-questions {
+    margin: 32px 0 40px;
+    padding-left: 28px;
+    border-left: 2px solid var(--green-soft);
+  }
+  .post-questions p {
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .post-questions p:last-child { margin-bottom: 0; }
+  .post-closer {
+    border-top: 1px solid rgba(45,90,61,.16);
+    padding-top: 32px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--green-soft);
+    font-family: var(--sans);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── CTA ── */
+  .post-cta {
+    background: var(--navy);
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .post-cta h2 {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    color: var(--stone); margin-bottom: 20px; line-height: 1.2;
+  }
+  .post-cta p {
+    font-size: 17px; color: rgba(240,237,228,.62); max-width: 440px;
+    margin: 0 auto 32px; line-height: 1.75;
+  }
+  .cta-btn {
+    display: inline-block; background: var(--stone-dark); color: var(--navy);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .cta-btn:hover { background: #e0dbd1; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy); padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand { font-family: var(--serif); font-size: 20px; color: var(--stone); font-weight: 400; }
+  .footer-tag { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--green-soft); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .s-nav { padding: 14px 20px; }
+    .s-links { display: none; }
+    .hamburger { display: flex; }
+    .post-header { padding: 52px 24px 64px; }
+    .post-title { font-size: 34px; }
+    .post-body { padding: 48px 24px 72px; }
+    .post-body p { font-size: 20px; }
+    .post-cta { padding: 56px 24px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="s-nav">
+  <div class="s-logo">
+    <a href="index.html">
+      <span class="brand">Clay Conner Coaching</span>
+      <span class="brand-sub">Clarity for What's Next</span>
+    </a>
+  </div>
+  <div class="s-links">
+    <a href="about.html">About</a>
+    <a href="clients.html">Clients</a>
+    <a href="writing.html" class="active">Writing</a>
+  </div>
+  <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="clients.html">Clients</a>
+  <a href="writing.html">Writing</a>
+  <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
+</div>
+
+<!-- Post Header -->
+<section class="post-header">
+  <a href="writing.html" class="post-back">Writing</a>
+  <div class="post-arch">The Leader in the Gap</div>
+  <h1 class="post-title">The Flinch Is the Tell</h1>
+  <p class="post-subtitle">On the gap between who you want to be and how you're showing up</p>
+  <div class="post-meta">
+    <span>April 14, 2026</span>
+    <span>Essay · 4 min read</span>
+  </div>
+</section>
+
+<!-- Essay Body -->
+<article class="post-body">
+
+  <p>I've been in a lot of rooms with people who are about to find something.</p>
+
+  <p>You can feel it before they do. They've been talking for a while, working on something that won't move. Then the energy in the room changes. Something in them leans forward. They're close. One more question, one more metaphor, and they'll land it.</p>
+
+  <p>That moment is the whole reason I do this.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>Here's what I've watched, over and over.</p>
+
+  <p>Smart people. Values-driven people. People who can describe what good leadership looks like in clean sentences. They know the principles. They've read the books. They can tell you exactly how they want to show up.</p>
+
+  <p>Then the moment arrives — the hard conversation, the firm boundary, the feedback someone needs to hear, the new terrain where old competence doesn't yet reach — and something pulls them back.</p>
+
+  <p>They soften. They hedge. The edge goes out of the sentence before it leaves their mouth. They walk out telling themselves they handled it with grace. Two weeks later, the same pattern is running.</p>
+
+  <div class="post-pullquote">
+    <p>The flinch is the tell.</p>
+  </div>
+
+  <p>Not a weakness. A signal. Something is in the room that hasn't been named yet.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>I know this one from the inside.</p>
+
+  <p>When I was a kid, I wanted to be something I wasn't yet. I felt like an imposter most days. I knew what the grown-up version of me was supposed to look like, and I could see the distance between there and where I was standing. The distance hurt. And I learned, early, to cover it.</p>
+
+  <p>I spent a long time thinking the distance was the problem.</p>
+
+  <p>It wasn't. It was the beginning of something.</p>
+
+  <p>That kid was already on the threshold. He didn't know it. Nobody had told him the gap between who he wanted to be and who he was right then was the most important thing about him. It was the evidence that he was paying attention to his own life.</p>
+
+  <p>Most of the leaders I sit with are living in that same gap. And almost none of them have been told what it means.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>The gap is not a plan problem. A plan problem is solvable with a calendar.</p>
+
+  <p>The gap is an identity problem. And you can't out-discipline an identity.</p>
+
+  <p>You already have three frameworks for hard conversations on your shelf. Another one won't help. The question is not <em>what to say.</em> The question is <em>who you believe you are the moment you say it.</em></p>
+
+  <p>That's the work.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>So here's what I ask, when someone is in it.</p>
+
+  <div class="post-questions">
+    <p>How does this connect to one of your values?</p>
+    <p>Pretend it's a year from now. You've done the thing. Really put yourself there. What would future you tell present you, right now?</p>
+    <p>What do you really want?</p>
+  </div>
+
+  <p>Those questions don't hand you an answer. They slow the moment down enough for the real one to surface. Usually, the answer was already there. It was waiting for someone to make the room quiet enough to hear it.</p>
+
+  <p>When that happens — when someone finds the thing they've been carrying without language for it — I am not proud of the question. I am grateful to be in the room.</p>
+
+  <p>That moment is not a technique. It's the whole reason the work exists.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>So if you're reading this and something is tightening in your chest — if you know the flinch I'm describing because you felt it yesterday — here's what I want you to hear.</p>
+
+  <p>You are not broken.</p>
+
+  <p>You are on the threshold.</p>
+
+  <p>The gap you can name is the proof that you are paying attention. The people with no gap are not further along. They are not paying attention.</p>
+
+  <p>You have diagnosed the condition. You have not yet been asked the right question.</p>
+
+  <p>Come sit down.</p>
+
+  <p>We'll find it together.</p>
+
+  <div class="post-closer">
+    Clay Conner coaches high-achieving professionals at genuine thresholds.<br>
+    Clay Conner Coaching · Clarity for What's Next
+  </div>
+
+</article>
+
+<!-- CTA -->
+<section class="post-cta">
+  <h2>If something here landed,<br>that's worth a conversation.</h2>
+  <p>The call is free. The conversation is honest. You'll know by the end of it.</p>
+  <a href="https://tidycal.com/clay3" class="cta-btn">Schedule a Conversation</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span class="footer-brand">Clay Conner Coaching</span>
+  <span class="footer-tag">Clarity for What's Next</span>
+</footer>
+
+<script>
+  const hbg = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  const cls = document.getElementById('mob-close');
+  const cta = document.getElementById('nav-cta-desktop');
+  function openMenu(){ hbg.classList.add('open'); mob.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hbg.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }
+  hbg.addEventListener('click', openMenu);
+  cls.addEventListener('click', closeMenu);
+  mob.addEventListener('click', function(e){ if(e.target===mob) closeMenu(); });
+  function handleResize(){
+    if(window.innerWidth > 900){ cta.style.display = ''; closeMenu(); }
+    else { cta.style.display = 'none'; }
+  }
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+
+</body>
+</html>

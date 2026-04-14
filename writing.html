@@ -132,6 +132,8 @@
     margin-bottom: 40px;
     background: var(--stone);
     transition: box-shadow .2s;
+    text-decoration: none;
+    color: inherit;
   }
   .post-featured:hover { box-shadow: 0 4px 24px rgba(27,46,79,.08); }
   .post-featured-visual {
@@ -184,6 +186,8 @@
     transition: box-shadow .2s;
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: inherit;
   }
   .post-card:hover { box-shadow: 0 4px 20px rgba(27,46,79,.08); }
   .post-card-top {
@@ -209,8 +213,12 @@
   .post-card-excerpt {
     font-size: 16px; line-height: 1.7; color: var(--ink);
   }
+  .post-card-meta {
+    font-size: 12px; color: var(--green); font-family: var(--sans);
+    letter-spacing: .04em;
+  }
   .post-card-date {
-    font-size: 12px; color: rgba(240,237,228,.45); font-family: var(--sans);
+    font-size: 12px; color: rgba(240,237,228,.55); font-family: var(--sans);
     letter-spacing: .04em;
   }
 
@@ -281,18 +289,34 @@
 <section class="posts-section">
   <div class="posts-label">April 2026</div>
 
-  <!-- Featured post -->
-  <article class="post-featured">
+  <!-- Featured post — Week 2 -->
+  <a href="writing-week2-essay.html" class="post-featured">
     <div class="post-featured-visual">
-      <span class="post-arch-tag">The Achiever at the Threshold</span>
-      <h2 class="post-featured-title">When Your Greatest Strength Becomes the Wall</h2>
-      <span class="post-featured-date">April 8, 2026 · Essay</span>
+      <span class="post-arch-tag">The Leader in the Gap</span>
+      <h2 class="post-featured-title">The Flinch Is the Tell</h2>
+      <span class="post-featured-date">April 14, 2026 · Essay</span>
     </div>
     <div class="post-featured-body">
-      <p class="post-excerpt">High achievers have a specific kind of exhaustion — the kind that comes from trying very hard at something that won't move, and then trying harder. The person putting in the most effort is rarely the one moving fastest.</p>
-      <a href="writing-week1-essay.html" class="post-read">Read the essay</a>
+      <p class="post-excerpt">Smart, values-driven people can describe what good leadership looks like in clean sentences. Then the moment arrives — the hard conversation, the firm boundary — and something pulls them back. That something has a name, and it's not a weakness.</p>
+      <span class="post-read">Read the essay</span>
     </div>
-  </article>
+  </a>
+
+  <!-- Earlier posts grid -->
+  <div class="posts-grid">
+
+    <a href="writing-week1-essay.html" class="post-card">
+      <div class="post-card-top">
+        <span class="post-arch-tag">The Achiever at the Threshold</span>
+        <h3 class="post-card-title">When Your Greatest Strength Becomes the Wall</h3>
+      </div>
+      <div class="post-card-body">
+        <p class="post-card-excerpt">High achievers have a specific kind of exhaustion — the kind that comes from trying very hard at something that won't move, and then trying harder.</p>
+        <span class="post-card-meta">April 8, 2026 · Essay</span>
+      </div>
+    </a>
+
+  </div>
 
 </section>
 
