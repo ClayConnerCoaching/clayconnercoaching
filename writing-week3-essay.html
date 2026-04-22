@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F8KJS7BXF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F8KJS7BXF4');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Replanting · Clay Conner Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #1B2E4F;
+    --green:      #2D5A3D;
+    --green-soft: #8FB89A;
+    --green-pale: #D4EAD8;
+    --stone:      #F0EDE4;
+    --stone-dark: #E4DFD3;
+    --ink:        #4A5A4A;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --sans:       system-ui, sans-serif;
+  }
+
+  body { background: var(--stone); color: var(--navy); font-family: var(--sans); }
+
+  /* ── Nav ── */
+  .s-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px; background: var(--stone);
+    border-bottom: 1px solid rgba(45,90,61,.14); position: sticky; top: 0; z-index: 100;
+  }
+  .s-logo { display: flex; flex-direction: column; }
+  .s-logo a { display: flex; flex-direction: column; text-decoration: none; }
+  .brand { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--navy); line-height: 1; }
+  .brand-sub { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-top: 4px; }
+  .s-links { display: flex; gap: 28px; align-items: center; }
+  .s-links a { font-size: 18px; text-decoration: none; color: var(--ink); letter-spacing: .02em; transition: color .2s; }
+  .s-links a:hover { color: var(--navy); }
+  .s-links a.active { color: var(--navy); font-weight: 500; }
+  .nav-cta {
+    background: var(--green); color: var(--green-pale); padding: 9px 20px;
+    font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .nav-cta:hover { background: #234a31; }
+
+  /* ── Hamburger ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: all .25s; border-radius: 1px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--stone); z-index: 200; flex-direction: column;
+    align-items: center; justify-content: center; gap: 36px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: .04em; }
+  .mobile-menu a:hover { color: var(--green); }
+  .mobile-menu .mob-cta {
+    display: inline-block; background: var(--green); color: var(--green-pale);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; font-family: var(--sans); margin-top: 8px;
+  }
+  .mobile-menu .mob-close {
+    position: absolute; top: 22px; right: 22px; background: none; border: none;
+    font-size: 28px; cursor: pointer; color: var(--navy); line-height: 1; padding: 4px 8px;
+  }
+
+  /* ── Post header ── */
+  .post-header {
+    background: var(--navy);
+    padding: 72px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #1e4229, var(--green-soft), var(--green));
+  }
+  .post-back {
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--green-soft); text-decoration: none; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 36px;
+    transition: color .2s;
+  }
+  .post-back::before { content: '←'; }
+  .post-back:hover { color: var(--stone); }
+  .post-arch {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--green-soft); font-family: var(--sans); margin-bottom: 20px;
+  }
+  .post-title {
+    font-family: var(--serif); font-size: 48px; line-height: 1.07;
+    color: var(--stone); max-width: 680px; font-weight: 400; margin-bottom: 24px;
+  }
+  .post-subtitle {
+    font-family: var(--serif); font-size: 22px; font-style: italic;
+    color: rgba(240,237,228,.62); max-width: 560px; margin-bottom: 32px;
+  }
+  .post-meta {
+    font-size: 13px; color: rgba(240,237,228,.45); font-family: var(--sans);
+    letter-spacing: .04em; display: flex; gap: 24px;
+  }
+
+  /* ── Essay body ── */
+  .post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+  }
+  .post-body p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.82;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .post-body p em {
+    font-style: italic;
+    color: var(--navy);
+  }
+  .post-body .section-break {
+    text-align: center;
+    color: var(--green-soft);
+    font-size: 18px;
+    letter-spacing: .2em;
+    margin: 48px 0;
+    display: block;
+  }
+  .post-pullquote {
+    border-left: 2px solid var(--green);
+    padding-left: 28px;
+    margin: 48px 0;
+  }
+  .post-pullquote p {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--navy);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .post-questions {
+    margin: 32px 0 40px;
+    padding-left: 28px;
+    border-left: 2px solid var(--green-soft);
+  }
+  .post-questions p {
+    font-style: italic;
+    color: var(--navy);
+    margin-bottom: 20px;
+  }
+  .post-questions p:last-child { margin-bottom: 0; }
+  .post-closer {
+    border-top: 1px solid rgba(45,90,61,.16);
+    padding-top: 32px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--green-soft);
+    font-family: var(--sans);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── CTA ── */
+  .post-cta {
+    background: var(--navy);
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .post-cta h2 {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    color: var(--stone); margin-bottom: 20px; line-height: 1.2;
+  }
+  .post-cta p {
+    font-size: 17px; color: rgba(240,237,228,.62); max-width: 440px;
+    margin: 0 auto 32px; line-height: 1.75;
+  }
+  .cta-btn {
+    display: inline-block; background: var(--stone-dark); color: var(--navy);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .cta-btn:hover { background: #e0dbd1; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy); padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand { font-family: var(--serif); font-size: 20px; color: var(--stone); font-weight: 400; }
+  .footer-tag { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--green-soft); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .s-nav { padding: 14px 20px; }
+    .s-links { display: none; }
+    .hamburger { display: flex; }
+    .post-header { padding: 52px 24px 64px; }
+    .post-title { font-size: 34px; }
+    .post-body { padding: 48px 24px 72px; }
+    .post-body p { font-size: 20px; }
+    .post-cta { padding: 56px 24px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="s-nav">
+  <div class="s-logo">
+    <a href="index.html">
+      <span class="brand">Clay Conner Coaching</span>
+      <span class="brand-sub">Clarity for What's Next</span>
+    </a>
+  </div>
+  <div class="s-links">
+    <a href="about.html">About</a>
+    <a href="clients.html">Clients</a>
+    <a href="writing.html" class="active">Writing</a>
+  </div>
+  <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="clients.html">Clients</a>
+  <a href="writing.html">Writing</a>
+  <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
+</div>
+
+<!-- Post Header -->
+<section class="post-header">
+  <a href="writing.html" class="post-back">Writing</a>
+  <div class="post-arch">The Uprooted</div>
+  <h1 class="post-title">Replanting</h1>
+  <p class="post-subtitle">A letter to the professionally uprooted</p>
+  <div class="post-meta">
+    <span>April 21, 2026</span>
+    <span>Essay · 3 min read</span>
+  </div>
+</section>
+
+<!-- Essay Body -->
+<article class="post-body">
+
+  <p>You are the boundaries queen at work. You are not at home.</p>
+
+  <p>You can tell a client no and mean it. You can run a meeting with six senior stakeholders and leave everyone clearer than when they walked in. You know exactly what you will and will not tolerate — professionally. The same person who does all of that has been tolerating things in her own life she would never tolerate anywhere else.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>That is the sentence one of my clients said out loud and could not un-say. Savannah had just come through a divorce, a relocation, and a new senior role she had taken on to grow — while still running the business she had built herself. Any one of those would have been a year of someone's life. She did all three at once and did not break stride. She was still the one everyone counted on. That was part of what was scaring her.</p>
+
+  <p>She said she felt like a transplanted plant. Still fragile. Not ready to be moved again.</p>
+
+  <p>She did not call it being blocked. She was moving the whole time. The movement was not arriving anywhere.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>You know this season even if you would not have used her words. Something shifted. More than one thing. You kept going because going is what you do. You are still going. You are still the one everyone counts on. You keep waiting to feel like yourself again — after the move settles, after the papers are final, after the new role finds its shape. It has been long enough now. You should feel different. You do not.</p>
+
+  <p>The person who got you here — the one who holds everything together, who does not ask for help, who has been the capable one since she was a kid — is the same person making this season harder than it has to be. She has standards for her work. She has standards for the people she leads. She has none of those standards for her own life. She manages everything for everyone else. She has not managed anything for herself in years.</p>
+
+  <p>That is what Savannah saw. Naming it did not fix it. Naming it let her stop fighting it.</p>
+
+  <div class="post-pullquote">
+    <p>You are not lost. You are not broken. You are transplanted.</p>
+  </div>
+
+  <p>The ground you used to stand on is gone. The career, the marriage, the city, the role — one or two of them shifted, and the self you always knew how to be was partly held up by all of that. You did not lose yourself. You lost the soil.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>You are not going back to who you were. That person belonged to a life that is gone. The question underneath this season is a different one, and you already know it. Who do you want to be in the life you are living now?</p>
+
+  <p>That is not a question you answer alone. Not because you are not capable. Because the people closest to you need you to be okay — and you need a room where you do not have to be.</p>
+
+  <p>You are not lost. You are replanting.</p>
+
+  <div class="post-closer">
+    Clay Conner coaches high-achieving professionals navigating significant life transitions.<br>
+    Clay Conner Coaching · Clarity for What's Next
+  </div>
+
+</article>
+
+<!-- CTA -->
+<section class="post-cta">
+  <h2>If something here landed,<br>that's worth a conversation.</h2>
+  <p>The call is free. The conversation is honest. You'll know by the end of it.</p>
+  <a href="https://tidycal.com/clay3" class="cta-btn">Schedule a Conversation</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span class="footer-brand">Clay Conner Coaching</span>
+  <span class="footer-tag">Clarity for What's Next</span>
+</footer>
+
+<script>
+  const hbg = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  const cls = document.getElementById('mob-close');
+  const cta = document.getElementById('nav-cta-desktop');
+  function openMenu(){ hbg.classList.add('open'); mob.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hbg.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }
+  hbg.addEventListener('click', openMenu);
+  cls.addEventListener('click', closeMenu);
+  mob.addEventListener('click', function(e){ if(e.target===mob) closeMenu(); });
+  function handleResize(){
+    if(window.innerWidth > 900){ cta.style.display = ''; closeMenu(); }
+    else { cta.style.display = 'none'; }
+  }
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+
+</body>
+</html>
