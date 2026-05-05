@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F8KJS7BXF4"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-F8KJS7BXF4');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Last Four Seconds · Clay Conner Coaching</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:       #1B2E4F;
+    --green:      #2D5A3D;
+    --green-soft: #8FB89A;
+    --green-pale: #D4EAD8;
+    --stone:      #F0EDE4;
+    --stone-dark: #E4DFD3;
+    --ink:        #4A5A4A;
+    --serif:      'Cormorant Garamond', Georgia, serif;
+    --sans:       system-ui, sans-serif;
+  }
+
+  body { background: var(--stone); color: var(--navy); font-family: var(--sans); }
+
+  /* ── Nav ── */
+  .s-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 48px; background: var(--stone);
+    border-bottom: 1px solid rgba(45,90,61,.14); position: sticky; top: 0; z-index: 100;
+  }
+  .s-logo { display: flex; flex-direction: column; }
+  .s-logo a { display: flex; flex-direction: column; text-decoration: none; }
+  .brand { font-family: var(--serif); font-size: 30px; font-weight: 600; color: var(--navy); line-height: 1; }
+  .brand-sub { font-size: 15px; letter-spacing: .14em; text-transform: uppercase; color: var(--green); margin-top: 4px; }
+  .s-links { display: flex; gap: 28px; align-items: center; }
+  .s-links a { font-size: 18px; text-decoration: none; color: var(--ink); letter-spacing: .02em; transition: color .2s; }
+  .s-links a:hover { color: var(--navy); }
+  .s-links a.active { color: var(--navy); font-weight: 500; }
+  .nav-cta {
+    background: var(--green); color: var(--green-pale); padding: 9px 20px;
+    font-size: 14px; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .nav-cta:hover { background: #234a31; }
+
+  /* ── Hamburger ── */
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); transition: all .25s; border-radius: 1px; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--stone); z-index: 200; flex-direction: column;
+    align-items: center; justify-content: center; gap: 36px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-family: var(--serif); font-size: 32px; font-weight: 400; color: var(--navy); text-decoration: none; letter-spacing: .04em; }
+  .mobile-menu a:hover { color: var(--green); }
+  .mobile-menu .mob-cta {
+    display: inline-block; background: var(--green); color: var(--green-pale);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; font-family: var(--sans); margin-top: 8px;
+  }
+  .mobile-menu .mob-close {
+    position: absolute; top: 22px; right: 22px; background: none; border: none;
+    font-size: 28px; cursor: pointer; color: var(--navy); line-height: 1; padding: 4px 8px;
+  }
+
+  /* ── Post header ── */
+  .post-header {
+    background: var(--navy);
+    padding: 72px 48px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .post-header::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #1e4229, var(--green-soft), var(--green));
+  }
+  .post-back {
+    font-size: 13px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--green-soft); text-decoration: none; font-family: var(--sans);
+    display: inline-flex; align-items: center; gap: 8px; margin-bottom: 36px;
+    transition: color .2s;
+  }
+  .post-back::before { content: '←'; }
+  .post-back:hover { color: var(--stone); }
+  .post-arch {
+    font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--green-soft); font-family: var(--sans); margin-bottom: 20px;
+  }
+  .post-title {
+    font-family: var(--serif); font-size: 48px; line-height: 1.07;
+    color: var(--stone); max-width: 680px; font-weight: 400; margin-bottom: 24px;
+  }
+  .post-subtitle {
+    font-family: var(--serif); font-size: 22px; font-style: italic;
+    color: rgba(240,237,228,.62); max-width: 560px; margin-bottom: 32px;
+  }
+  .post-meta {
+    font-size: 13px; color: rgba(240,237,228,.45); font-family: var(--sans);
+    letter-spacing: .04em; display: flex; gap: 24px;
+  }
+
+  /* ── Essay body ── */
+  .post-body {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 72px 48px 96px;
+  }
+  .post-body p {
+    font-family: var(--serif);
+    font-size: 22px;
+    line-height: 1.82;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .post-body p em {
+    font-style: italic;
+    color: var(--navy);
+  }
+  .post-body .section-break {
+    text-align: center;
+    color: var(--green-soft);
+    font-size: 18px;
+    letter-spacing: .2em;
+    margin: 48px 0;
+    display: block;
+  }
+  .post-pullquote {
+    border-left: 2px solid var(--green);
+    padding-left: 28px;
+    margin: 48px 0;
+  }
+  .post-pullquote p {
+    font-family: var(--serif);
+    font-size: 24px;
+    line-height: 1.6;
+    color: var(--navy);
+    font-style: italic;
+    margin-bottom: 0;
+  }
+  .post-body .client-quote {
+    font-style: italic;
+    color: var(--navy);
+    font-size: 22px;
+  }
+  .post-closer {
+    border-top: 1px solid rgba(45,90,61,.16);
+    padding-top: 32px;
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--green-soft);
+    font-family: var(--sans);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* ── CTA ── */
+  .post-cta {
+    background: var(--navy);
+    padding: 72px 48px;
+    text-align: center;
+  }
+  .post-cta h2 {
+    font-family: var(--serif); font-size: 36px; font-weight: 400;
+    color: var(--stone); margin-bottom: 20px; line-height: 1.2;
+  }
+  .post-cta p {
+    font-size: 17px; color: rgba(240,237,228,.62); max-width: 440px;
+    margin: 0 auto 32px; line-height: 1.75;
+  }
+  .cta-btn {
+    display: inline-block; background: var(--stone-dark); color: var(--navy);
+    padding: 14px 32px; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; font-weight: 500; border-radius: 2px; transition: background .2s;
+  }
+  .cta-btn:hover { background: #e0dbd1; }
+
+  /* ── Footer ── */
+  .footer {
+    background: var(--navy); padding: 32px 48px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-brand { font-family: var(--serif); font-size: 20px; color: var(--stone); font-weight: 400; }
+  .footer-tag { font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: var(--green-soft); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .s-nav { padding: 14px 20px; }
+    .s-links { display: none; }
+    .hamburger { display: flex; }
+    .post-header { padding: 52px 24px 64px; }
+    .post-title { font-size: 34px; }
+    .post-body { padding: 48px 24px 72px; }
+    .post-body p { font-size: 20px; }
+    .post-cta { padding: 56px 24px; }
+    .footer { flex-direction: column; gap: 8px; text-align: center; padding: 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="s-nav">
+  <div class="s-logo">
+    <a href="index.html">
+      <span class="brand">Clay Conner Coaching</span>
+      <span class="brand-sub">Clarity for What's Next</span>
+    </a>
+  </div>
+  <div class="s-links">
+    <a href="about.html">About</a>
+    <a href="clients.html">Clients</a>
+    <a href="writing.html" class="active">Writing</a>
+  </div>
+  <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
+  <button class="hamburger" id="hamburger" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="clients.html">Clients</a>
+  <a href="writing.html">Writing</a>
+  <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
+</div>
+
+<!-- Post Header -->
+<section class="post-header">
+  <a href="writing.html" class="post-back">Writing</a>
+  <h1 class="post-title">The Last Four Seconds</h1>
+  <p class="post-subtitle">On the version of you that shows up when it counts</p>
+  <div class="post-meta">
+    <span>May 5, 2026</span>
+    <span>Essay · 3 min read</span>
+  </div>
+</section>
+
+<!-- Essay Body -->
+<article class="post-body">
+
+  <p>Four seconds before the wheels touched, her mind got loud.</p>
+
+  <p class="client-quote">Don't screw this up. Don't screw this up.</p>
+
+  <p>The voice showed up exactly when she needed it gone.</p>
+
+  <p>Melanie had been flying for months. She had the hours. She had the instruction. She had done everything right.</p>
+
+  <p>Most student pilots solo in 15 or 20 hours. Melanie had 100. Her instructor still wouldn't sign her off.</p>
+
+  <p>Some landings were fine. Enough to prove she could do it. The next one might not be. Without him in the right seat, neither of them would trust what came next.</p>
+
+  <p>That got to her.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>Melanie is an employment attorney in Brisbane. She's built a career in a field where precision matters and mistakes are expensive. Before that, she lived in fifteen countries. She trained competitively as a cyclist and swimmer. She spent over ten years as a governess for royalty in Europe.</p>
+
+  <p>She knows how to do hard things.</p>
+
+  <p>Flying didn't bend.</p>
+
+  <p>She understood it. She had the discipline. In the last four seconds — the only four seconds that mattered — something else took over.</p>
+
+  <p class="client-quote">Don't screw this up. Don't screw this up.</p>
+
+  <p>She wasn't flying the plane. She was managing failure in advance.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>At some point she said it out loud:</p>
+
+  <p class="client-quote">"I know what to do."</p>
+
+  <p>That's where the work started.</p>
+
+  <p>She didn't need a better plan. She needed another Melanie in the seat.</p>
+
+  <p>We brought in the version of her that already existed — the one with the track record. The one who adjusts without overthinking and doesn't narrate failure while she's performing.</p>
+
+  <p>Not a new skill — a different identity at the controls.</p>
+
+  <p>She also had to deal with the instructor.</p>
+
+  <p>He knew how to fly. He didn't know how to teach. His frustration was bleeding into the cockpit, and she was absorbing it at the exact moment she needed clarity.</p>
+
+  <p>So she closed him out. Not physically. Mentally.</p>
+
+  <p>Different Melanie. Different relationship to the voice. Different relationship to the person next to her.</p>
+
+  <p>Same plane. Same conditions.</p>
+
+  <p>The landings changed.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>Not perfectly. But consistently enough that the pattern broke.</p>
+
+  <p>The plan wasn't the problem. The voice wasn't even the problem. It was the version of her that was listening to it.</p>
+
+  <span class="section-break">* * *</span>
+
+  <p>There's a version of you that shows up in the last four seconds. Your manager asks the question you weren't expecting. The investor pushes back on your numbers in front of the room. Your team is waiting on the call only you can make.</p>
+
+  <p>The voice gets louder, not quieter, the closer you get to it.</p>
+
+  <p>Most people try to fix that by trying harder. That's never been the move.</p>
+
+  <p>Decide who's in the seat.</p>
+
+  <p>The future version of you isn't waiting.</p>
+
+  <p>What did Melanie say to herself once she'd made the switch? Four words.</p>
+
+  <div class="post-pullquote">
+    <p>Just fly the aircraft.</p>
+  </div>
+
+  <div class="post-closer">
+    Clay Conner coaches high-achieving professionals at genuine thresholds.<br>
+    Clay Conner Coaching · Clarity for What's Next
+  </div>
+
+</article>
+
+<!-- CTA -->
+<section class="post-cta">
+  <h2>If something here landed,<br>that's worth a conversation.</h2>
+  <p>The call is free. The conversation is honest. You'll know by the end of it.</p>
+  <a href="https://tidycal.com/clay3" class="cta-btn">Schedule a Conversation</a>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <span class="footer-brand">Clay Conner Coaching</span>
+  <span class="footer-tag">Clarity for What's Next</span>
+</footer>
+
+<script>
+  const hbg = document.getElementById('hamburger');
+  const mob = document.getElementById('mobile-menu');
+  const cls = document.getElementById('mob-close');
+  const cta = document.getElementById('nav-cta-desktop');
+  function openMenu(){ hbg.classList.add('open'); mob.classList.add('open'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ hbg.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow=''; }
+  hbg.addEventListener('click', openMenu);
+  cls.addEventListener('click', closeMenu);
+  mob.addEventListener('click', function(e){ if(e.target===mob) closeMenu(); });
+  function handleResize(){
+    if(window.innerWidth > 900){ cta.style.display = ''; closeMenu(); }
+    else { cta.style.display = 'none'; }
+  }
+  window.addEventListener('resize', handleResize);
+  handleResize();
+</script>
+
+</body>
+</html>
