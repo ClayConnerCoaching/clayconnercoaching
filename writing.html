@@ -132,8 +132,6 @@
     margin-bottom: 40px;
     background: var(--stone);
     transition: box-shadow .2s;
-    text-decoration: none;
-    color: inherit;
   }
   .post-featured:hover { box-shadow: 0 4px 24px rgba(27,46,79,.08); }
   .post-featured-visual {
@@ -141,7 +139,8 @@
     padding: 52px 44px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 18px;
     min-height: 320px;
   }
   .post-arch-tag {
@@ -186,8 +185,6 @@
     transition: box-shadow .2s;
     display: flex;
     flex-direction: column;
-    text-decoration: none;
-    color: inherit;
   }
   .post-card:hover { box-shadow: 0 4px 20px rgba(27,46,79,.08); }
   .post-card-top {
@@ -213,12 +210,8 @@
   .post-card-excerpt {
     font-size: 16px; line-height: 1.7; color: var(--ink);
   }
-  .post-card-meta {
-    font-size: 12px; color: var(--green); font-family: var(--sans);
-    letter-spacing: .04em;
-  }
   .post-card-date {
-    font-size: 12px; color: rgba(240,237,228,.55); font-family: var(--sans);
+    font-size: 12px; color: rgba(240,237,228,.45); font-family: var(--sans);
     letter-spacing: .04em;
   }
 
@@ -261,7 +254,7 @@
   </div>
   <div class="s-links">
     <a href="about.html">About</a>
-    <a href="clients.html">Clients</a>
+    <a href="clients.html">Results</a>
     <a href="writing.html" class="active">Writing</a>
   </div>
   <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
@@ -273,7 +266,7 @@
   <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
-  <a href="clients.html">Clients</a>
+  <a href="clients.html">Results</a>
   <a href="writing.html">Writing</a>
   <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
 </div>
@@ -281,68 +274,72 @@
 <!-- Hero -->
 <section class="writing-hero">
   <div class="wh-eye">Writing</div>
-  <h1 class="wh-hl">Three posts a week. All of it grounded in the work.</h1>
-  <p class="wh-sub">Tuesday essays go long. Thursday posts make one point. Saturday shorts leave you somewhere new. None of it is advice. All of it is true.</p>
+  <h1 class="wh-hl">For the leader who knows exactly what to do and can't figure out why they aren't doing it.</h1>
+  <p class="wh-sub">The writing is about that gap &mdash; where it comes from, why effort doesn't close it, and what does.</p>
 </section>
 
 <!-- Posts -->
 <section class="posts-section">
-  <div class="posts-label">Spring 2026</div>
+  <div class="posts-label">Recent essays</div>
 
-  <!-- Featured post — Week 5 -->
-  <a href="writing-week5-essay.html" class="post-featured">
+  <!-- Featured posts (two newest) -->
+  <article class="post-featured">
     <div class="post-featured-visual">
       <h2 class="post-featured-title">The Last Four Seconds</h2>
-      <span class="post-featured-date">May 5, 2026 · Essay</span>
+      <span class="post-featured-date">May 5, 2026 &middot; Essay</span>
     </div>
     <div class="post-featured-body">
-      <p class="post-excerpt">Four seconds before the wheels touched, Melanie's mind got loud. She had 100 hours of instruction and an instructor who still wouldn't sign her off. The plane was the same. The conditions were the same. The voice in her head was running interference at the exact moment she needed her hands and eyes free.</p>
-      <span class="post-read">Read the essay</span>
+      <p class="post-excerpt">Four seconds before the wheels touched, her mind got loud. The voice showed up exactly when she needed it gone &mdash; and the work was deciding who was in the seat.</p>
+      <a href="writing-week5-essay.html" class="post-read">Read the essay</a>
     </div>
-  </a>
+  </article>
 
-  <!-- Earlier posts grid -->
+  <article class="post-featured">
+    <div class="post-featured-visual">
+      <h2 class="post-featured-title">When the Role Drops</h2>
+      <span class="post-featured-date">April 28, 2026 &middot; Essay</span>
+    </div>
+    <div class="post-featured-body">
+      <p class="post-excerpt">Andrew could recite his mission word for word and still couldn't talk to a patient about money. Three good relationships, three honest reasons the truth had a price.</p>
+      <a href="writing-week4-essay.html" class="post-read">Read the essay</a>
+    </div>
+  </article>
+
+  <!-- Earlier posts -->
   <div class="posts-grid">
 
-    <a href="writing-week4-essay.html" class="post-card">
-      <div class="post-card-top">
-        <h3 class="post-card-title">When the Role Drops</h3>
-      </div>
-      <div class="post-card-body">
-        <p class="post-card-excerpt">Andrew sat back two inches in his chair in our third session. He had a wife who loved him, a landlord who was his competitor, a peer group going through their own version of the same thing. Three good relationships, three honest reasons the truth had a price.</p>
-        <span class="post-card-meta">April 28, 2026 · Essay</span>
-      </div>
-    </a>
-
-    <a href="writing-week3-essay.html" class="post-card">
+    <article class="post-card">
       <div class="post-card-top">
         <h3 class="post-card-title">Replanting</h3>
+        <span class="post-card-date">April 21, 2026 &middot; Essay</span>
       </div>
       <div class="post-card-body">
-        <p class="post-card-excerpt">She was the boundaries queen at work. Then the divorce, the move, and the new role landed in the same year, and she could not find the self who used to show up everywhere else. She was not broken. She was transplanted.</p>
-        <span class="post-card-meta">April 21, 2026 · Essay</span>
+        <p class="post-card-excerpt">The boundaries queen at work who has none of those standards for her own life. You are not lost, and you are not broken. You are transplanted.</p>
+        <a href="writing-week3-essay.html" class="post-read">Read the essay</a>
       </div>
-    </a>
+    </article>
 
-    <a href="writing-week2-essay.html" class="post-card">
+    <article class="post-card">
       <div class="post-card-top">
         <h3 class="post-card-title">The Flinch Is the Tell</h3>
+        <span class="post-card-date">April 14, 2026 &middot; Essay</span>
       </div>
       <div class="post-card-body">
-        <p class="post-card-excerpt">Smart, values-driven people know what good leadership looks like. Then the moment arrives — the hard conversation, the firm boundary — and something pulls them back. That something has a name.</p>
-        <span class="post-card-meta">April 14, 2026 · Essay</span>
+        <p class="post-card-excerpt">They can describe good leadership in clean sentences. Then the moment arrives and the edge goes out of the sentence before it leaves their mouth.</p>
+        <a href="writing-week2-essay.html" class="post-read">Read the essay</a>
       </div>
-    </a>
+    </article>
 
-    <a href="writing-week1-essay.html" class="post-card">
+    <article class="post-card">
       <div class="post-card-top">
         <h3 class="post-card-title">When Your Greatest Strength Becomes the Wall</h3>
+        <span class="post-card-date">April 8, 2026 &middot; Essay</span>
       </div>
       <div class="post-card-body">
-        <p class="post-card-excerpt">High achievers have a specific kind of exhaustion — the kind that comes from trying very hard at something that won't move, and then trying harder.</p>
-        <span class="post-card-meta">April 8, 2026 · Essay</span>
+        <p class="post-card-excerpt">High achievers have a specific kind of exhaustion &mdash; the kind that comes from trying very hard at something that won't move, then trying harder.</p>
+        <a href="writing-week1-essay.html" class="post-read">Read the essay</a>
       </div>
-    </a>
+    </article>
 
   </div>
 

@@ -226,6 +226,14 @@
     opacity: .75;
     letter-spacing: .02em;
   }
+  .story-frame {
+    font-family: var(--serif);
+    font-size: 19px;
+    font-style: italic;
+    color: var(--green);
+    margin-top: 10px;
+    line-height: 1.3;
+  }
 
   .story-body {
     display: grid;
@@ -646,6 +654,23 @@
   .body-link:hover { color: var(--navy); }
   .profile-link { display: block; margin-top: 28px; font-size: 15px; letter-spacing: .08em; color: var(--green); text-decoration: none; font-family: var(--sans); }
   .profile-link:hover { color: var(--navy); }
+
+  /* short-card additions */
+  .card-sum { font-size:18px; line-height:1.7; color:var(--ink); max-width:760px; margin:18px 0 26px; }
+  .card-results { background:#FBFAF6; border:1px solid rgba(45,90,61,.14); border-radius:2px; padding:22px 26px; max-width:760px; }
+  .cr-label { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--green); margin-bottom:12px; font-weight:600; }
+  .card-results ul { list-style:none; margin:0; padding:0; }
+  .card-results li { font-size:16px; line-height:1.55; color:var(--navy); padding:7px 0 7px 22px; position:relative; border-top:1px solid rgba(45,90,61,.08); }
+  .card-results li:first-child { border-top:none; }
+  .card-results li::before { content:''; position:absolute; left:2px; top:15px; width:6px; height:6px; background:var(--green-soft); border-radius:50%; }
+  .card-quote { font-family:var(--serif); font-size:22px; font-style:italic; line-height:1.4; color:var(--navy); max-width:680px; margin:26px 0 0; padding-left:20px; border-left:3px solid var(--green-soft); }
+  .card-quote cite { display:block; font-family:var(--sans); font-style:normal; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:rgba(74,90,74,.6); margin-top:12px; }
+  .ctx-tag { color:var(--green); font-style:italic; }
+  @media (max-width:760px){
+    .card-sum { font-size:16px; }
+    .card-results { padding:18px 18px; }
+    .card-quote { font-size:19px; }
+  }
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
@@ -661,7 +686,7 @@
   </div>
   <div class="s-links">
     <a href="about.html">About</a>
-    <a href="clients.html" class="active">Clients</a>
+    <a href="clients.html" class="active">Results</a>
     <a href="writing.html">Writing</a>
   </div>
   <a href="https://tidycal.com/clay3" class="nav-cta" style="display:none;" id="nav-cta-desktop">Book a Call</a>
@@ -673,7 +698,7 @@
   <button class="mob-close" id="mob-close" aria-label="Close menu">&times;</button>
   <a href="index.html">Home</a>
   <a href="about.html">About</a>
-  <a href="clients.html">Clients</a>
+  <a href="clients.html">Results</a>
   <a href="writing.html">Writing</a>
   <a href="https://tidycal.com/clay3" class="mob-cta">Book a Call</a>
 </div>
@@ -682,179 +707,110 @@
 <section class="hero">
   <div class="h-eye">Client Stories</div>
   <h1 class="h-hl">The work, up close.</h1>
-  <p class="h-sub">These are people at genuine thresholds. The challenge they named when they arrived was rarely the one we ended up working on.</p>
+  <p class="h-sub">These are leaders at genuine thresholds. The challenge they named when they arrived was rarely the one we ended up working on.</p>
 </section>
 
 <!-- Framing -->
 <section class="framing">
   <div class="framing-inner">
     <div class="framing-eye">What you'll find here</div>
-    <p class="framing-body">Every person on this page was carrying something they couldn't say out loud — not to their family, not to their colleagues, not to anyone. That was always the first thing that changed. Everything else followed from it.</p>
+    <p class="framing-body">Every leader on this page was carrying something they couldn't say out loud — not to their family, not to their colleagues, not to anyone. That was always the first thing that changed. Everything else followed from it.</p>
     <p class="framing-body" style="margin-top:16px;"><a href="about.html" class="body-link">More about the approach behind this work &rarr;</a></p>
   </div>
 </section>
 
 <!-- Client 1: Melanie -->
+<!-- CLIENT CARDS (short: summary + documented results + quote) -->
 <section class="story">
   <div class="story-header">
     <div class="story-num">01</div>
     <div class="story-meta">
-      <div class="story-archetype">The Achiever at the Threshold</div>
-      <div class="story-name">Melanie Thorley</div>
-      <div class="story-context">Employment Attorney · Brisbane, Australia</div>
+      <div class="story-name">Dr. Andrew Rostenberg</div>
+      <div class="story-context">Chiropractor &middot; Boise, Idaho</div>
+      <div class="story-frame">He knew exactly who he was. He couldn't lead from it when it counted.</div>
     </div>
   </div>
-
-  <div class="story-body">
-    <div class="story-narrative">
-      <div class="story-before">Before coaching</div>
-      <div class="story-text">
-        <p>Melanie commands courtrooms. She reads a room, builds a case, and advocates for her clients under pressure. She is exactly the kind of person who figures things out.</p>
-        <p>She and her husband had bought a Cessna 172 with a purpose behind it: to fly animals to adoptive families across remote parts of Australia. She committed fully to training. After 100 hours of instruction, she still hadn't soloed. The sticking point was landings — the inner voice running alongside every approach was relentless. Her CFI wasn't helping. The training felt structureless, and frustration had replaced the sense of adventure that started all of it.</p>
-        <p>She described it later as "swimming in a vast ocean with no landmarks." She knew how to swim. She couldn't find a direction.</p>
-      </div>
-
-      <div class="story-shift">
-        <div class="shift-label">What shifted</div>
-        <div class="shift-text">
-          <p>The issue wasn't technique. It was what she was saying to herself on every final approach — the voice that ran commentary on each correction, catalogued each mistake, and told her what her instructor must be thinking. She could chair-fly a circuit with precision. She fell apart the moment someone was beside her to evaluate it. Coaching gave her a place to say what she couldn't say to her CFI or her family: "This is really hard. I'm scared. I feel like I'm going backwards."</p>
-          <p>That honesty opened the door. She started seeing the connection between what she was thinking and what was happening in the cockpit. Once she named the voice, she could choose not to follow it. She called what happened next "clarity of action" — her words, not mine. Within weeks, the landings smoothed out. In January 2025, she passed her checkride on the first attempt.</p>
-          <p>She came in with a landing problem. The landing problem was never the problem.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="story-pullquote">
-      <span class="pq-mark">&#x201C;</span>
-      <p class="pq-text">Clarity of action. I was able to understand why I was doing something in my own mind — and coaching gave me the clarity to shift that into a different path.</p>
-      <div class="pq-attr">Melanie Thorley · Employment Attorney</div>
-
-      <div class="pq-insight">
-        <div class="pq-insight-lbl">The breakthrough</div>
-        <div class="pq-insight-txt">"Without exposing my insecurities, I wouldn't have been able to expose the solutions."</div>
-      </div>
-    </div>
+  <p class="card-sum">A chiropractor who knew exactly who he was but couldn't lead from it when the care-plan conversation turned to money. Over a thirteen-year relationship that began at his lowest point, the work changed how he showed up &mdash; and the practice followed.</p>
+  <div class="card-results">
+    <div class="cr-label">Documented results</div>
+    <ul>
+      <li>Reframed the fee conversation from a negotiation into an act of service &mdash; patients responded</li>
+      <li>Six patients a week to fifty-five; past $24,000 a month within six months</li>
+      <li>Built the full patient-journey system and opened his own practice</li>
+      <li>Moved from technician to builder &mdash; hired and developed a team, designed staff retention</li>
+      <li>Thirteen years later: leads a multi-physician clinic and trains other doctors</li>
+    </ul>
   </div>
+  <blockquote class="card-quote">&ldquo;I've tried to do so many things by myself. Having someone listen &mdash; and then ask the question that gets things to move &mdash; that's what changed everything.&rdquo;<cite>Dr. Andrew Rostenberg</cite></blockquote>
 </section>
 
-<!-- Melanie Big Testimonial -->
-<div class="testimonial-block">
-  <div class="tb-inner">
-    <div class="tb-eye">In her own words</div>
-    <span class="tb-mark">&#x201C;</span>
-    <p class="tb-quote">You can't tell your family how hard it is — they won't want to get in a plane with you. Your CFI needs to see confidence. Coaching was the only place I could say what was going on. That safe space changed everything. And once I stopped hiding the insecurities, the solutions were right there underneath them.</p>
-    <div class="tb-attr">Melanie Thorley · Private Pilot · Brisbane, Australia</div>
-  </div>
-</div>
-
-<!-- Client 2: Savannah -->
 <section class="story">
   <div class="story-header">
     <div class="story-num">02</div>
     <div class="story-meta">
-      <div class="story-archetype">The Uprooted</div>
       <div class="story-name">Savannah Rossetti</div>
-      <div class="story-context">Principal Consultant · Strategic Advisor</div>
+      <div class="story-context">Principal Consultant</div>
+      <div class="story-frame">Leading herself when the room moved without her.</div>
     </div>
   </div>
-
-  <div class="story-body">
-    <div class="story-narrative">
-      <div class="story-before">Before coaching</div>
-      <div class="story-text">
-        <p>Savannah sets a high bar — in her work, in her relationships, in what she expects from herself. She calls herself "the boundaries queen" professionally. She came into coaching and discovered she had applied none of those same standards to her closest relationship.</p>
-        <p>She arrived after a relationship ended. She was rebuilding. She had tolerated and bargained too much to keep what she thought was peace — and the toll was visible, even to her. She knew something was off. The words she kept reaching for: I just want to feel like myself again.</p>
-        <p>The metaphor that landed early: she was a transplanted plant. Fragile. Not fully rooted. Not ready to uproot again.</p>
-      </div>
-
-      <div class="story-shift">
-        <div class="shift-label">What shifted</div>
-        <div class="shift-text">
-          <p>Coaching gave Savannah a room where she didn't have to have it together. In her professional life, her personal life, even with her closest relationships — uncertainty was a liability. She had no place to carry what she was actually carrying. That changed the moment she walked in.</p>
-          <p>The work helped her see her pain not as evidence something was wrong with her, but as a reading of her own values. Every value she named — trust, honesty, order, peace — pointed directly at what the relationship had cost her. Her pain made sense. That clarity changed the shape of her grief — traction instead of weight.</p>
-          <p>She found a clear line: if it's not a hell yes, it's a no. Not as a rule — as a reading of her own values. She stopped mistaking tolerance for peace. She started protecting what she called her ecosystem with the same precision she brings to her professional work.</p>
-          <p>Three weeks into a role that had made her nervous, her biggest insight wasn't about the job. It was about what thriving looks like for her — and the difference between performing for others and living well on her own terms.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="story-pullquote">
-      <span class="pq-mark">&#x201C;</span>
-      <p class="pq-text">I'm not willing to settle for mediocre in work any more than I would in relationships. If it's not a hell yes, it's a no.</p>
-      <div class="pq-attr">Savannah Rossetti</div>
-
-      <div class="pq-insight">
-        <div class="pq-insight-lbl">The reframe</div>
-        <div class="pq-insight-txt">"Nothing was wrong with her. She was reading her own values exactly right — the relationship had been asking her to ignore them."</div>
-      </div>
-    </div>
+  <p class="card-sum">A high performer rebuilding after a loss who learned to read her own values as a guide. Months later she carried that same precision into a senior role that had been redrawn without her in the room.</p>
+  <div class="card-results">
+    <div class="cr-label">Documented results</div>
+    <ul>
+      <li>Built a portable decision tool she still uses &mdash; moves without over-deliberating</li>
+      <li>Set her criteria before entering a new role; walked in at full confidence</li>
+      <li>Defined and held her role under pressure when it was redrawn without her</li>
+      <li>Found the language for a hard conversation with leadership and held her ground</li>
+      <li>Set hard boundaries to protect her health and capacity &mdash; chose herself over overwork</li>
+    </ul>
   </div>
+  <blockquote class="card-quote">&ldquo;I'm not willing to settle for mediocre in work any more than I would in relationships. If it's not a hell yes, it's a no.&rdquo;<cite>Savannah Rossetti</cite></blockquote>
 </section>
 
-<!-- Quote bridge -->
-<section class="quote-bridge">
-  <div class="qb-inner">
-    <span class="qm">&#x201C;</span>
-    <p class="qt">The issue you name when you arrive is almost never the issue. The work lives one floor down.</p>
-    <div class="qa">Clay Conner</div>
-  </div>
-</section>
-
-<!-- Client 3: Luke Larkin -->
 <section class="story">
   <div class="story-header">
     <div class="story-num">03</div>
     <div class="story-meta">
-      <div class="story-archetype">The Leader in the Gap</div>
       <div class="story-name">Luke Larkin</div>
       <div class="story-context">AI Product Builder &middot; Boise, Idaho</div>
+      <div class="story-frame">Leading a team he couldn't be honest with.</div>
     </div>
   </div>
-
-  <div class="story-body">
-    <div class="story-narrative">
-      <div class="story-before">Before coaching</div>
-      <div class="story-text">
-        <p>Luke Larkin builds AI products. He came into coaching at 33 with years of men&#x2019;s work, 12-step recovery, and spiritual study behind him. He was not new to looking at himself.</p>
-        <p>He had a clear vision and no one he could be fully honest with. He couldn&#x2019;t say what he was afraid of to the people whose approval he was seeking. He couldn&#x2019;t show the team he was building how uncertain he felt. The people who needed him to be confident were exactly the people he couldn&#x2019;t talk to. He carried it.</p>
-        <p>He came in thinking he needed help with team leadership and strategy.</p>
-      </div>
-
-      <div class="story-shift">
-        <div class="shift-label">What shifted</div>
-        <div class="shift-text">
-          <p>Within twenty minutes he was crying. Not because anything dramatic happened &#x2014; Clay asked him to close his eyes and describe what his purpose looked like.</p>
-          <p>He saw two images. A man standing in full light with nothing held back. And a man sitting in a cage &#x2014; chains around him that weren&#x2019;t attached to anything. Just sitting there. Choosing it.</p>
-          <p>That image opened something the years of prior work had circled but not reached &#x2014; a belief running beneath his leadership, beneath his relationships, beneath his sense of what he was allowed to be. The pattern had a name. Once it had a name, it lost its grip.</p>
-          <p>He left that session and changed how he leads his team. Not because he was told to. Because he couldn&#x2019;t unsee what he&#x2019;d found.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="story-pullquote">
-      <span class="pq-mark">&#x201C;</span>
-      <p class="pq-text">I couldn&#x2019;t unsee what he showed me about myself.</p>
-      <div class="pq-attr">Luke Larkin &middot; Boise, Idaho</div>
-
-      <div class="pq-insight">
-        <div class="pq-insight-lbl">The image</div>
-        <div class="pq-insight-txt">A man in full light with nothing held back. A man in a cage &#x2014; chains that weren&#x2019;t attached to anything. Choosing it.</div>
-      </div>
-    </div>
+  <p class="card-sum">A founder with a clear vision and no one he could be fully honest with &mdash; least of all the team that needed him certain. The work surfaced the belief running beneath his leadership.</p>
+  <div class="card-results">
+    <div class="cr-label">Documented results</div>
+    <ul>
+      <li>Named the pattern beneath his leadership &mdash; once named, it lost its grip</li>
+      <li>Anchored his leadership on his own phrase: clarity of purpose</li>
+      <li>Worked the shift from caregiver to a leader who sets standards and owns his space</li>
+      <li>Changed how he leads his team &mdash; by choice, not instruction</li>
+    </ul>
   </div>
+  <blockquote class="card-quote">&ldquo;I couldn't unsee what he showed me about myself.&rdquo;<cite>Luke Larkin</cite></blockquote>
 </section>
 
-<!-- Luke testimonial -->
-<div class="testimonial-block">
-  <div class="tb-inner">
-    <div class="tb-eye">In his own words</div>
-    <span class="tb-mark">&#x201C;</span>
-    <p class="tb-quote">What Clay does is hard to explain because it doesn&#x2019;t look like much from the outside. He doesn&#x2019;t talk a lot. He doesn&#x2019;t have a system he&#x2019;s selling you. He just listens at a level I have never experienced from another human being, and then he asks you one question that lands in the exact place you&#x2019;ve been protecting. You don&#x2019;t even realize you&#x2019;ve been protecting it until the question hits.</p>
-    <div class="tb-attr">Luke Larkin &middot; Boise, Idaho</div>
+<section class="story">
+  <div class="story-header">
+    <div class="story-num">04</div>
+    <div class="story-meta">
+      <div class="story-name">Melanie Thorley</div>
+      <div class="story-context">Employment &amp; Labor Law &middot; Brisbane, Australia <span class="ctx-tag">(flight training)</span></div>
+      <div class="story-frame">Proven in one arena. Starting over in another &mdash; with everything on the line.</div>
+    </div>
   </div>
-</div>
+  <p class="card-sum">A courtroom advocate who froze in an unfamiliar domain where her competence didn't transfer. After 100 hours of flight training stalled and ready to quit, the work was carrying the authority she already had into the place she didn't have it yet.</p>
+  <div class="card-results">
+    <div class="cr-label">Documented results</div>
+    <ul>
+      <li>Named the inner voice running every final approach &mdash; and stopped following it</li>
+      <li>Found &ldquo;clarity of action&rdquo; &mdash; understood her own thinking and could redirect it</li>
+      <li>Carried proven professional authority into unfamiliar, high-stakes terrain</li>
+      <li>Passed her checkride on the first attempt, weeks after nearly giving up</li>
+    </ul>
+  </div>
+  <blockquote class="card-quote">&ldquo;Clarity of action. I was able to understand why I was doing something in my own mind &mdash; and coaching gave me the clarity to shift that into a different path.&rdquo;<cite>Melanie Thorley</cite></blockquote>
+</section>
 
-<!-- CTA -->
 <section class="cta">
   <p style="text-align:center; font-family:'Cormorant Garamond', Georgia, serif; font-size:20px; font-style:italic; color:rgba(240,237,228,.75); margin-bottom:24px;">Every client on this page arrived carrying something they couldn't say out loud anywhere else. Every one of them hit a moment when something locked for years came loose. Then they moved.</p>
   <h2 class="cta-hl">If something in these stories sounds familiar,<br>that's enough reason to reach out.</h2>
